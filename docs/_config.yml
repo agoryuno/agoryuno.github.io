@@ -23,7 +23,12 @@ email: alex.goryunov@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is a collection of post with notes from my exploration
   of various topics in causal inference, data science, and all
-  kinds and purposes of coding
+  kinds and purposes of coding.
+
+  These notes are mostly meant for my own future self and, 
+  as such, might be in a state of (hopefully temporary) disarray.
+  I do try to tidy them up and bring them to a logical conclusion
+  in hope that other people might benefit from them.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  agoryuno
