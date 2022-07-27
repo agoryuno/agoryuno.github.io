@@ -1,6 +1,5 @@
 % Multi-Armed Bandits with Thompson Sampling: a toy example from finance
 
-
 We use a Thompson Sampling Multi-Armed Bandit (MAB TS) to explore solutions to a simple financial game, which I've first encountered in the [Doxod company's Telegram channel](https://t.me/dohod/11500) (in Russian).
 
 The complete code for this example is available at [https://github.com/agoryuno/mab_ts_example](https://github.com/agoryuno/mab_ts_example)
