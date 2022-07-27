@@ -1,5 +1,6 @@
 ---
 layout: post
+mathjax: true
 title:  "Multi-Armed Bandits with Thompson Sampling: a toy example from finance"
 date:   2022-07-27
 ---
@@ -273,7 +274,6 @@ The MAB algorithm assign a strategy to an arm of the bandit and playing that arm
 We'll do the same thing for the `Arm` and `Bandit` as we did for the `Strategy` above: make base classes with the most fundamental functionality and extend them with specific implementations by subclassing. 
 
 Code for the base `Arm` class follows:
-
 
 
 ```python
