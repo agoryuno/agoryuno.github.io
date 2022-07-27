@@ -35,7 +35,7 @@ The central part of MAB estimation is the reward function. This is some function
 
 $$r_a = \log{ \frac{v_a}{V (1+d)^T}},    (1)$$
 
-where $$V$$ - initially invested capital (\(V=1000\)), \(d\) - discount rate (\(d=0.05\)), \(T\) - number of rounds (\(T=20\)), \(v_a\) - value of the portfolio in the end of the game. 
+where $$V$$ - initially invested capital ($$V=1000$$), $$d$$ - discount rate ($$d=0.05$$), $$T$$ - number of rounds ($$T=20$$), $$v_a$$ - value of the portfolio in the end of the game. 
 
 ## The policy
 
