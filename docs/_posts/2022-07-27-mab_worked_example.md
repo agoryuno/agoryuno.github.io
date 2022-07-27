@@ -359,6 +359,7 @@ And the update equations for $$\alpha$$ and $$\lambda$$ are much simpler:
 $$
 \alpha' = \alpha + \frac {n}{2}
 $$
+
 $$
 \lambda' = \lambda + n
 $$
