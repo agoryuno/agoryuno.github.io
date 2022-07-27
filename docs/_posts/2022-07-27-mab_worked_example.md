@@ -33,9 +33,10 @@ There's a lot of information online about Multi-Armed Bandits in general, and Mu
 
 The central part of MAB estimation is the reward function. This is some function which given an action (or an arbitrarily complicated sequence of actions) returns a numeric reward. In probably the most popular practical setting for MAB - modelling user response to ads - this reward is binary, with 1 for clicking on an ad and 0 - ignoring it. In our case it'll be a real number. For the purposes of simplifying sampling we need to keep the scale of the reward fairly tight - the game can generate wildly different returns with maximums exceeding the means by a factor of thousand. Therefore, instead of discounted profit we'll use the natural logarithm of the ratio of the fully discounted value of our portfolio at the end of the game to its starting value (1000 by problem definition) :
 
-<table style="width:60% ">
-    <tr><td>$r_a = \log{ \frac{v_a}{V (1+d)^T}},$</td> <td>(1)</td></tr>
-</table>
+$$
+r_a = \log{ \frac{v_a}{V (1+d)^T}},  (1)
+$$
+
 
 where $V$ - initially invested capital ($V=1000$), $d$ - discount rate ($d=0.05$), $T$ - number of rounds ($T=20$), $v_a$ - value of the portfolio in the end of the game. 
 
