@@ -4,15 +4,14 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+ This is a collection of posts with notes from my exploration
+  of various topics in causal inference, data science, and all
+  kinds and purposes of coding.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+  These notes are mostly meant for my own future self and, 
+  as such, might be in a state of (hopefully temporary) disarray.
+  I do try to tidy them up and bring them to a logical conclusion
+  in hope that other people might benefit from them.
 
 
-[jekyll-organization]: https://github.com/jekyll
+
