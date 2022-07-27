@@ -39,7 +39,7 @@ where $$V$$ - initially invested capital ($$V=1000$$), $$d$$ - discount rate ($$
 
 ## The policy
 
-The value \(v_a\) in (1) is the result of implementing a policy \(a\). This is an action or a complex of actions which, when executed, yields a certain result, represented by \(v_a\). In our case a policy is a specific investment strategy that is followed for the number of periods \(T\) and yields value \(v_a\) in the end. We'll define a number of such strategies, presented below.
+The value $v_a$ in (1) is the result of implementing a policy \(a\). This is an action or a complex of actions which, when executed, yields a certain result, represented by \(v_a\). In our case a policy is a specific investment strategy that is followed for the number of periods \(T\) and yields value \(v_a\) in the end. We'll define a number of such strategies, presented below.
 
 
 
