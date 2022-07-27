@@ -498,11 +498,11 @@ _(axes, 1, 1)
 
 That code will produce a figure similar to the one below. In the graphs the orange jagged line represents the actual mean reward produced by the arm plays, while the smooth blue line depicts the values of the $$\mu$$ paramater - the hypothetical mean.
 
-![figure1.png](figure1.png)
+![figure1.png](/assets/images/figure1.png)
 
 Note that due to the random nature of the game no two runs of the simulation will produce the same result. However, in all 4 graphs the values of the actual and hypothetical means are close together, and in three cases out of four the lines actually appear to converge. The latter is merely an illusion, but this convergence represents the tendency of the orange line to return to the blue one. A tendency which is better revealed in the next figure, which represents 20 000 pulls on each of the four arms.
 
-![figure1_1.png](figure1_1.png)
+![figure1_1.png](/assets/images/figure1_1.png)
 
 In the above figure we can see four different types of convergence. In the top left graph the convergence between the hypothetical and factual means appears absolute, although that is yet another illusion, caused by the bigger scale of the vertical axis due to the abnormally high and low means at the start of the run. In the top right graph the orange line repeatedly touches the blue, in the bottom left - it crosses the blue from both above and below, and in the bottom right - stays below but close to the blue. 
 
