@@ -33,16 +33,13 @@ There's a lot of information online about Multi-Armed Bandits in general, and Mu
 
 The central part of MAB estimation is the reward function. This is some function which given an action (or an arbitrarily complicated sequence of actions) returns a numeric reward. In probably the most popular practical setting for MAB - modelling user response to ads - this reward is binary, with 1 for clicking on an ad and 0 - ignoring it. In our case it'll be a real number. For the purposes of simplifying sampling we need to keep the scale of the reward fairly tight - the game can generate wildly different returns with maximums exceeding the means by a factor of thousand. Therefore, instead of discounted profit we'll use the natural logarithm of the ratio of the fully discounted value of our portfolio at the end of the game to its starting value (1000 by problem definition) :
 
-$$
-r_a = \log{ \frac{v_a}{V (1+d)^T}},  (1)
-$$
+$$r_a = \log{ \frac{v_a}{V (1+d)^T}},    (1)$$
 
-
-where $V$ - initially invested capital ($V=1000$), $d$ - discount rate (\(d=0.05\)), \(T\) - number of rounds (\(T=20\)), \(v_a\) - value of the portfolio in the end of the game. 
+where \(V\) - initially invested capital (\(V=1000\)), \(d\) - discount rate (\(d=0.05\)), \(T\) - number of rounds (\(T=20\)), \(v_a\) - value of the portfolio in the end of the game. 
 
 ## The policy
 
-The value $v_a$ in (1) is the result of implementing a policy $a$. This is an action or a complex of actions which, when executed, yields a certain result, represented by $v_a$. In our case a policy is a specific investment strategy that is followed for the number of periods $T$ and yields value $v_a$ in the end. We'll define a number of such strategies, presented below.
+The value \(v_a\) in (1) is the result of implementing a policy \(a\). This is an action or a complex of actions which, when executed, yields a certain result, represented by \(v_a\). In our case a policy is a specific investment strategy that is followed for the number of periods \(T\) and yields value \(v_a\) in the end. We'll define a number of such strategies, presented below.
 
 
 
@@ -277,6 +274,7 @@ We'll do the same thing for the `Arm` and `Bandit` as we did for the `Strategy` 
 Code for the base `Arm` class follows:
 
 
+
 ```python
 class Arm:
 
@@ -338,25 +336,25 @@ What's more, people have already found solutions for quite a few pairs of conjug
 
 For our problem we'll use the Normal-NormalGamma pair of distributions. Although, since we are using log-reward, as opposed to straight reward, it is actually LogNormal-NormalGamma.
 
-We will sample our rewards from the normal distribution with parameters $\mu$ and $\frac{1} {\lambda \tau}$, with $\tau$ being sampled from the gamma distribution with parameters $\alpha$ and $\beta$.
+We will sample our rewards from the normal distribution with parameters \(\mu\) and \(\frac{1} {\lambda \tau}\), with \(\tau\) being sampled from the gamma distribution with parameters \(\alpha\) and \(\beta\).
 
-The update equation for $\mu$:
+The update equation for \(\mu\):
 
 $$
 \mu' = \frac {\lambda  \mu + n  \bar {x}} {\lambda + n}
 $$
 
-where $\mu'$ is the updated value of $\mu$, $n$ - the number of samples we've already taken (equiv. the number of times the Arm's been played), $\bar {x}$ - the mean of the actual rewards received.
+where \(\mu'\) is the updated value of \(\mu\), \(n\) - the number of samples we've already taken (equiv. the number of times the Arm's been played), \(\bar {x}\) - the mean of the actual rewards received.
 
-For $\beta$:
+For \(\beta\):
 
 $$
 \beta' = \beta + \frac{1}{2} \sum_{i=0}^{n-1}{(x_i - \bar{x})^2} + \frac {n \lambda} {\lambda + n} \frac {(\bar{x} - \mu)^2} {2}
 $$
 
-where $\beta'$ is the updated value of $\beta$, $x_i$ is an i-th factual reward value.
+where \(\beta'\) is the updated value of \(\beta\), \(x_i\) is an i-th factual reward value.
 
-And the update equations for $\alpha$ and $\lambda$ are much simpler:
+And the update equations for \(\alpha\) and \(\lambda\) are much simpler:
 
 $$
 \alpha' = \alpha + \frac {n}{2}
@@ -365,7 +363,7 @@ $$
 \lambda' = \lambda + n
 $$
 
-where $\alpha'$ and $\lambda'$ are the updated values.
+where \(\alpha'\) and \(\lambda'\) are the updated values.
 
 With these equations we can proceed to construct the practical implementation of an Arm. Once again we begin with the `__init__()` method.
 
@@ -407,7 +405,7 @@ And the method to sample the hypothetical reward used in the Arm selection proce
         return norm.rvs(self.mu, np.sqrt(1/(self.lmd*tau)) )
 ```
 
-Note that above we sample $\tau$ from the Gamma distribution. $\tau$ is the "precision" parameter for the formulation of the Normal distribution density functions alternative to the more often cited standard deviation one. Scipy uses the "traditional" formulation, but $\frac {1} {\lambda \tau}$ just so happens to be equal to variance, and since variance is standard deviation squared, $\sqrt {\frac {1}{\lambda \tau}}$ gives us the standard deviation we can plug into Scipy's normal distribution sampling function.
+Note that above we sample \(\tau\) from the Gamma distribution. \(\tau\) is the "precision" parameter for the formulation of the Normal distribution density functions alternative to the more often cited standard deviation one. Scipy uses the "traditional" formulation, but \(\frac {1} {\lambda \tau}\) just so happens to be equal to variance, and since variance is standard deviation squared, \(sqrt {\frac {1}{\lambda \tau}}\) gives us the standard deviation we can plug into Scipy's normal distribution sampling function.
 
 We also need to override the base `Arm` class' `__call__()` method, since we need to take the log of reward
 
