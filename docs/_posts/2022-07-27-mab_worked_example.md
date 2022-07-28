@@ -465,14 +465,15 @@ Now that we have the strategies and arms fully working, we can run a short and s
 
 
 ```python
+from itertools import product
 from matplotlib import pyplot as plt
 
 from mab_ts2 import (STRATEGIES, ArmNormalGamma, 
                      StrategyInvestRebalancing)
 strat = lambda : StrategyInvestRebalancing(
     {fund : share for fund, share in 
-         zip(("green", "blue", "red"),STRATEGIES[3])}
-)()
+         zip(("green", "blue", "red"),
+         STRATEGIES[3])} )()
 
 arm = ArmNormalGamma(strat)
 
@@ -489,22 +490,22 @@ def _(axes, row, col, N=100):
 
     axes[row][col].plot(range(N), mus, label="mu")
     axes[row][col].plot(range(N), means, label="mean")
-    
-_(axes, 0, 0)
-_(axes, 0, 1)
-_(axes, 1, 0)
-_(axes, 1, 1)
+
+
+for row, col in product((0,1), (0,1)):
+    _(axes, row, col)
+plt.legend()
 ```
 
 That code will produce a figure similar to the one below. In the graphs the orange jagged line represents the actual mean reward produced by the arm plays, while the smooth blue line depicts the values of the $$\mu$$ paramater - the hypothetical mean.
 
 ![figure1.png](/assets/images/figure1.png)
 
-Note that due to the random nature of the game no two runs of the simulation will produce the same result. However, in all 4 graphs the values of the actual and hypothetical means are close together, and in three cases out of four the lines actually appear to converge. The latter is merely an illusion, but this convergence represents the tendency of the orange line to return to the blue one. A tendency which is better revealed in the next figure, which represents 20 000 pulls on each of the four arms.
+Note that due to the random nature of the game no two runs of the simulation will produce the same result. However, in all 4 graphs the values of the actual and hypothetical means are close together, and even appear to converge. The latter is merely an illusion, since the true mean "meanders" in a random walk and its approaching the hypothetical mean doesn't result in actual convergence. This is revealed in the next figure, which represents 20 000 pulls on each of the four arms.
 
 ![figure1_1.png](/assets/images/figure1_1.png)
 
-In the above figure we can see four different types of convergence. In the top left graph the convergence between the hypothetical and factual means appears absolute, although that is yet another illusion, caused by the bigger scale of the vertical axis due to the abnormally high and low means at the start of the run. In the top right graph the orange line repeatedly touches the blue, in the bottom left - it crosses the blue from both above and below, and in the bottom right - stays below but close to the blue. 
+In the top left graph of the above figure the hypothetical and factual means do appear to converge, but this is caused by the larger scale of the vertical axis due to the abnormally high and low means produced at the start of the run. In the other graphs the orange line crosses the blue and either stays close to it or keeps crossing it from above and below. 
 
 In all four cases the hypothetical mean tends to roughly the same value - around 0.4. This is important because although the arms in this experiment are different, they all play the same strategy, so the means should be close despite the random nature of the game.
 
