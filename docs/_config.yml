@@ -19,7 +19,10 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Data and coding notes
+author: 
+  name: Alexander Goryunov
 email: alex.goryunov@gmail.com
+tagline: Posts on data science, causal inference, statistics and coding
 description: >- # this means to ignore newlines until "baseurl:"
   This is a collection of posts with notes from my exploration
   of various topics in causal inference, data science, and all
@@ -32,7 +35,10 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  agoryuno
-
+social:
+  name: Alexander Goryunov
+  links:
+    - https://github.com/agoryuno
 # Build settings
 future: true
 theme: minima
