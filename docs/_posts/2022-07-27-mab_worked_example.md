@@ -402,8 +402,8 @@ And the method to sample the hypothetical reward used in the Arm selection proce
 
 ```python
     def sample(self):
-        tau = gamma.rvs(self.alpha, 1./self.beta)
-        return norm.rvs(self.mu, np.sqrt(1/(self.lmd*tau)) )
+        tau = gamma.rvs(self.alpha, scale=1./self.beta)
+        return norm.rvs(self.mu, scale=np.sqrt(1/(self.lmd*tau)) )
 ```
 
 Note that above we sample $$\tau$$ from the Gamma distribution. $$\tau$$ is the "precision" parameter for the formulation of the Normal distribution density functions alternative to the more often cited standard deviation one. Scipy uses the "traditional" formulation, but $$\frac {1} {\lambda \tau}$$ just so happens to be equal to variance, and since variance is standard deviation squared, $$sqrt {\frac {1}{\lambda \tau}}$$ gives us the standard deviation we can plug into Scipy's normal distribution sampling function.
