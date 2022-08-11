@@ -1,4 +1,9 @@
-# Notes from the underworld of Telegram web app development
+---
+layout: post
+mathjax: true
+title:  "Notes from the underworld of Telegram web app development"
+date:   2022-08-11
+---
 
 * **DO NOT use a non-standard HTTPS port.** Technically you can do it, of course. However if you later decide to give web access to your application via [Telegram web login](https://core.telegram.org/widgets/login) you'll find out that it refuses to work with any ports other than the standard 443. And that's if you are lucky, because it states this in exactly zero pieces of documentation and the errors it returns in this case contain exactly zero information. So you might just spend several days banging your head against this wall and give up. It took me a day of googling until (by accident) I've found one post on Stackoverflow where this was mentioned.
 
