@@ -265,7 +265,7 @@ One not immediately obvious problem with this approach to building strategies is
 
 # The algorithm
 
-The MAB algorithm assign a strategy to an arm of the bandit and playing that arm executes the strategy, yielding a reward. We'll implement the bandit as two base classes: `Arm` and `Bandit`, where multiple instances of `Arm` will be "attached" to a single `Bandit`.
+The MAB algorithm assigns a strategy to an arm of the bandit and playing that arm executes the strategy, yielding a reward. We'll implement the bandit as two base classes: `Arm` and `Bandit`, where multiple instances of `Arm` will be "attached" to a single `Bandit`.
 
 ## The arms
 
