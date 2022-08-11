@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "Notes from the underworld of Telegram web app development"
+title:  "Notes from the underground of Telegram web app development"
 date:   2022-08-11
 ---
 
