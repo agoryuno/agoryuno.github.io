@@ -42,10 +42,10 @@ class ValueRange:
     right : ValueRange = None
         
     def __iter__(self):
+        yield self
         if self.left is not None:
             for elem in self.left:
                 yield elem
-        yield self
         if self.right is not None:
             for elem in self.right:
                 yield elem
