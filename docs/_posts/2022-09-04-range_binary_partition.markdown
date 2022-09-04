@@ -5,7 +5,7 @@ title:  "Partitioning a value range with a binary tree"
 date:   2022-09-04
 ---
 
-**Code for this post** is available at: https://github.com/agoryuno/offcuts/blob/main/blog/binary_range.py
+**Code for this post** is available at: (https://github.com/agoryuno/offcuts/blob/main/blog/binary_range.py)
 
 We want to subdivide a range of numeric values into subranges in a way not unsimilar to [binary space partitioning](https://en.wikipedia.org/wiki/Binary_space_partitioning). The initial range is divided into two more or less equal subranges, each of those is divided into two more and so on. The subdivision stops whenever it reaches a given minimal range size. What we end up with is a binary tree with ranges on the nodes.
 
