@@ -5,6 +5,8 @@ title:  "Partitioning a value range with a binary tree"
 date:   2022-09-04
 ---
 
+**Code for this post** is available at: https://github.com/agoryuno/offcuts/blob/main/blog/binary_range.py
+
 We want to subdivide a range of numeric values into subranges in a way not unsimilar to [binary space partitioning](https://en.wikipedia.org/wiki/Binary_space_partitioning). The initial range is divided into two more or less equal subranges, each of those is divided into two more and so on. The subdivision stops whenever it reaches a given minimal range size. What we end up with is a binary tree with ranges on the nodes.
 
 The practical purpose of this exercise is to optimize queries to a certain API, which returns a number of search results given the minimum and maximum values of a range as parameters. We want to select parameter pairs in such a way that when executing the actual search queries we get a maximum of N results per query, exceeding N for some queries only if the parameters represent a minimal range size.
